@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {Transferencia} from "../model/Transferencia";
 
 @Component({
   selector: 'app-root',
@@ -7,28 +8,23 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'bytebank';
-  private _valor: number;
-  private _destino: number;
+  private _transferencia: Transferencia;
 
-  get valor(): number{
-    return this._valor;
+  constructor() {
+    this._transferencia = new Transferencia();
   }
 
-  set valor(valor: number){
-    this._valor = valor;
+  get transferencia(): Transferencia {
+    return this._transferencia;
   }
 
-  get destino(): number{
-    return this._destino;
-  }
-
-  set destino(destino: number){
-    this._destino = destino;
+  set transferencia(value: Transferencia) {
+    this._transferencia = value;
   }
 
   transferir($event: any){
     console.log($event)
-    this.valor = $event.valor
-    this.destino = $event.destino
+    this.transferencia.valor = $event.valor
+    this.transferencia.destino = $event.destino
   }
 }

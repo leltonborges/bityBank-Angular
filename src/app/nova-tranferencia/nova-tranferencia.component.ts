@@ -1,4 +1,5 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Transferencia} from "../../model/Transferencia";
 
 @Component({
   selector: 'app-nova-tranferencia',
@@ -7,44 +8,33 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 })
 export class NovaTranferenciaComponent implements OnInit {
 
-  @Output() private aoTranferir = new EventEmitter<any>();
+  @Output() private aoTranferir = new EventEmitter<Transferencia>();
 
-  _valor: number;
-  _destino: number;
+  private _transferencia: Transferencia;
 
   constructor() {
-    this.valor = 0.01;
-    this.destino = 0.0;
+    this.transferencia = new Transferencia();
   }
 
-  get valor(): number {
-    return this._valor;
+  get transferencia(): Transferencia {
+    return this._transferencia;
   }
 
-  set valor(value: number) {
-    this._valor = value;
-  }
-
-  get destino(): number {
-    return this._destino;
-  }
-
-  set destino(destino: number) {
-    this._destino = destino;
+  set transferencia(value: Transferencia) {
+    this._transferencia = value;
   }
 
   ngOnInit(): void {
   }
 
   transferir() {
-    const valorEmitir = {valor: this.valor, destino: this.destino};
-    this.aoTranferir.emit(valorEmitir);
+    this.aoTranferir.emit(this.transferencia);
     this.clearFields();
   }
 
   clearFields() {
-    this._valor = 0.01;
-    this.destino = 0;
+    this.transferencia.valor = 0.00;
+    this.transferencia.destino = 0;
   }
 
 }

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {Transferencia} from "../../model/Transferencia";
 
 @Component({
   selector: 'app-extrato',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./extrato.component.scss']
 })
 export class ExtratoComponent implements OnInit {
+  @Input()
+  transferencia: Transferencia
 
   constructor() { }
 
