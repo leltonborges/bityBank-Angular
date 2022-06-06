@@ -8,23 +8,22 @@ import {Transferencia} from "../model/Transferencia";
 })
 export class AppComponent {
   title = 'bytebank';
-  private _transferencia: Transferencia;
+  private _transferencias: Array<Transferencia>;
 
   constructor() {
-    this._transferencia = new Transferencia();
+    this._transferencias = new Array<Transferencia>();
   }
 
-  get transferencia(): Transferencia {
-    return this._transferencia;
+  get transferencias(): Array<Transferencia> {
+    return this._transferencias;
   }
 
-  set transferencia(value: Transferencia) {
-    this._transferencia = value;
+  set transferencias(value: Array<Transferencia>) {
+    this._transferencias = value;
   }
 
   transferir($event: any){
-    console.log($event)
-    this.transferencia.valor = $event.valor
-    this.transferencia.destino = $event.destino
+    let transferencia = new Transferencia($event.valor, $event.destino, new Date());
+    this.transferencias.push(transferencia)
   }
 }

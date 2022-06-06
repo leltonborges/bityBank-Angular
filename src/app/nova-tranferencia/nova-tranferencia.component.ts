@@ -13,7 +13,7 @@ export class NovaTranferenciaComponent implements OnInit {
   private _transferencia: Transferencia;
 
   constructor() {
-    this.transferencia = new Transferencia();
+    this.transferencia = new Transferencia(0.00, 0);
   }
 
   get transferencia(): Transferencia {

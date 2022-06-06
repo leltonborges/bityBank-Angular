@@ -8,9 +8,10 @@ import {Transferencia} from "../../model/Transferencia";
 })
 export class ExtratoComponent implements OnInit {
   @Input()
-  transferencia: Transferencia
+  transferencias: Array<Transferencia>
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }
