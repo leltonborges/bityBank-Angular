@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import {Transferencia} from "../model/Transferencia";
+import {Component} from '@angular/core';
+import {Transferencia} from "../models/Transferencia.model";
 import {TransferenciaService} from "../services/transferencia.service";
 
 @Component({
@@ -12,10 +12,15 @@ export class AppComponent {
 
   constructor(
     private transferenciaService: TransferenciaService
-  ) {}
+  ) {
+  }
 
-  transferir($event: any){
-    let transferencia = new Transferencia($event.valor, $event.destino, new Date());
+  transferir($event: any) {
+    let transferencia = new Transferencia();
+    transferencia.destino = $event.destino
+    transferencia.valor = $event.valor
+    transferencia.date = new Date();
+
     this.transferenciaService.addTransferencia(transferencia)
     // this.transferencias.push(transferencia)
   }

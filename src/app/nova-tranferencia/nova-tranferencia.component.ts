@@ -1,5 +1,5 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {Transferencia} from "../../model/Transferencia";
+import {Transferencia} from "../../models/Transferencia.model";
 
 @Component({
   selector: 'app-nova-tranferencia',
@@ -13,7 +13,7 @@ export class NovaTranferenciaComponent implements OnInit {
   private _transferencia: Transferencia;
 
   constructor() {
-    this.transferencia = new Transferencia(0.00, 0);
+    this.transferencia = new Transferencia();
   }
 
   get transferencia(): Transferencia {

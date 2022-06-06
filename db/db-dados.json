@@ -1,3 +1,14 @@
 {
-  "transferencias": []
+  "transferencias": [
+    {
+      "id": 1,
+      "valor": 234.2,
+      "destino": 1234
+    },
+    {
+      "id": 2,
+      "valor": 3215.6,
+      "destino": 361
+    }
+  ]
 }
