@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Transferencia} from "../../models/Transferencia.model";
 import {TransferenciaService} from "../../services/transferencia.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-nova-tranferencia',
@@ -11,7 +12,8 @@ export class NovaTranferenciaComponent implements OnInit {
   private _transferencia: Transferencia;
 
   constructor(
-    private transferenciaServive: TransferenciaService
+    private transferenciaServive: TransferenciaService,
+    private router: Router
   ) {
     this.transferencia = new Transferencia();
   }
@@ -31,15 +33,10 @@ export class NovaTranferenciaComponent implements OnInit {
     this.transferencia.date = new Date()
     this.transferenciaServive.addTransferencia(this.transferencia)
       .subscribe(result => {
-          console.log(`nova trans: ${result}`)
-          this.clearFields();
-        },
-        error => console.error(error),
-        () => console.log("fim"))
+        console.log(`nova trans: ${result}`)
+        this.router.navigateByUrl('extrato');
+      })
   }
 
-  clearFields() {
-    this.transferencia = new Transferencia();
-  }
 
 }
