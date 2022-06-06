@@ -25,7 +25,7 @@ export class TransferenciaService {
     return this.httpClient.get<Transferencia[]>(`${API_CONFIG.baseUrl}/transferencias`)
   }
 
-  addTransferencia(...transferencia: Array<Transferencia>) {
-    this.listTransferencia.push(...transferencia);
+  addTransferencia(transferencia: Transferencia): Observable<Transferencia> {
+    return this.httpClient.post<Transferencia>(`${API_CONFIG.baseUrl}/transferencias`, transferencia)
   }
 }
