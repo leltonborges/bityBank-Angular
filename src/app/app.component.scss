@@ -1,0 +1,25 @@
+header {
+  background-color: var(--primary);
+  padding: 10px;
+  color: white;
+  display: flex;
+  justify-content: center;
+
+  a {
+    color: inherit;
+    text-decoration: none;
+    padding: 0 10px;
+  }
+  .ativo {
+    display: none;
+  }
+  a:hover{
+    color: #132A13;
+    transition: word-spacing 3s;
+  }
+}
+
+main {
+  background-color: #fcfcfc;
+  padding: var(--padding);
+}
