@@ -1,6 +1,15 @@
-<div *ngFor="let t of transferencias">
-  <p>Valor: {{t?.valor}}</p>
-  <p>Destino: {{t?.destino}}</p>
-  <p>Destino: {{t?.data}}</p>
-</div>
+<table>
+  <thead>
+  <th>Destino</th>
+  <th>Valor</th>
+  <th>Data</th>
+  </thead>
+  <tbody>
+  <tr *ngFor="let t of transferencias">
+    <td>{{t.destino}}</td>
+    <td>{{t.valor}}</td>
+    <td>{{t.date | date:'short'}}</td>
+  </tr>
+  </tbody>
+</table>
 

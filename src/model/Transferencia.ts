@@ -1,11 +1,11 @@
 export class Transferencia{
   valor: number;
   destino: number;
-  data?: Date;
+  date?: Date;
 
-  constructor(valor: number, destino: number, data?: Date) {
+  constructor(valor: number, destino: number, date?: Date) {
     this.valor = valor;
     this.destino = destino;
-    this.data = data;
+    this.date = date;
   }
 }
